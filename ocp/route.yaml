@@ -1,0 +1,15 @@
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: jonas-lernia-app
+spec:
+  host: jonas-lernia-app.apps.cluster5.karoshi.se
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: jonas-lernia-app
+    weight: 100
+  wildcardPolicy: None
+

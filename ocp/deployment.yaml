@@ -2,22 +2,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jonas-lernia-app
+  name: qaisar-lernia-app
   annotations:
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"jonas-lernia-app:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"jonas-lernia-app\")].image"}]'
+    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"qaisar-lernia-app:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"qaisar-lernia-app\")].image"}]'
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: jonas-lernia-app
+      app: qaisar-lernia-app
   template:
     metadata:
       labels:
-        app: jonas-lernia-app
+        app: qaisar-lernia-app
     spec:
       containers:
-      - name: jonas-lernia-app
-        image: jonas-lernia-app:latest
+      - name: qaisar-lernia-app
+        image: qaisar-lernia-app:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

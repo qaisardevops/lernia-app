@@ -4,7 +4,13 @@ kind: Deployment
 metadata:
   name: jonas-lernia-app
   annotations:
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"jonas-lernia-app:latest"},"fieldPath":"spec.template.spec.containers[?(@.name==\"jonas-lernia-app\")].image"}]'
+    image.openshift.io/triggers: '[{
+      "from": {
+        "kind": "ImageStreamTag",
+        "name": "jonas-lernia-app:latest"
+      },
+      "fieldPath": "spec.template.spec.containers[?(@.name==\"jonas-lernia-app\")].image"
+    }]'
 spec:
   replicas: 2
   selector:
@@ -12,6 +18,8 @@ spec:
       app: jonas-lernia-app
   template:
     metadata:
+      annotations:
+        alpha.image.policy.openshift.io/resolve-names: '*'
       labels:
         app: jonas-lernia-app
     spec:

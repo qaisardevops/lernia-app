@@ -5,7 +5,7 @@ metadata:
   name: jonas-lernia-app
 spec:
   lookupPolicy:
-    local: false
+    local: true
   tags:
   - annotations: null
     from:

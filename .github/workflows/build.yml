@@ -1,7 +1,8 @@
 ---
 name: build-golang-app
 
-on: 
+on:
+  workflow_dispatch:
   push: 
     branches: ["latest"]
 
